@@ -91,11 +91,14 @@ class Plugin_Place extends Plugin
 	 */
 	function img()
 	{
+		// split multiple categories up
+		$category = explode('|', $this->attribute('category', 'any'));
+
 		// set up the basic url which we will always have
 		$url = array(
 			$this->attribute('width', 640),
 			$this->attribute('height', 480),
-			$this->attribute('category', 'any'),
+			$category[array_rand($category)],
 		);
 
 		// see if they want to apply a filter
